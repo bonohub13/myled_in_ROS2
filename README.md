@@ -27,5 +27,5 @@
 
 ## Referenced
 - Yutaka Kondo
-	- Referenced: 近藤豊 (2019) "ROS2ではじめよう 次世代ロボットプログラミング" 技術評論社
+	- 近藤豊 (2019) "ROS2ではじめよう 次世代ロボットプログラミング" 技術評論社
 		- URL: https://www.amazon.co.jp/dp/B07W6DX9MW/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
