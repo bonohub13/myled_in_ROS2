@@ -2,7 +2,7 @@
 
 ## Instructions
 - __First__
-	- This is using my former repository, so you'll need to clone that as well
+	- This is using my former repository, so you'd want to clone that as well
 		- URL: https://github.com/bonohub13/my_led.git
 
 	- If you're using Docker for the environment of ROS2, the whole procedure is automated in the Dockerfile in this repository
