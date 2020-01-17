@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
-sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 if [$HOME = "/root"]; then
 	sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
