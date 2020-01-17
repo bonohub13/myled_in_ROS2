@@ -9,7 +9,7 @@
 
 - Procedures on installing ROS2 on your home environment or in Docker containers
 	- home environment
-		- run the <i>init_run.bash</i> with sudo
+		- run the <i>init_run.bash</i> ~~with sudo~~ [updated January 18th, 2020]
 	- Docker containers
 		- build the Dockerfile __INSIDE__ of the directory of where the Dockerfile is located
 			- $ sudo docker build -t <whatever tag name you'd like> ./
@@ -20,6 +20,11 @@
 - The ROS2 installer in this repository only installs the basic components (No GUIs)
 	- If you want the ROS2 desktop version, go to the following link
 		- link: https://github.com/ryuichiueda/ros2_setup_scripts_Ubuntu18.04_desktop.git
+
+## Updates
+- January 17th, 2020
+	- changed init_run.bash file to change the installation based on the $HOME user
+		- added sudo for non-root users
 
 ## Special Thanks to...
 - Ryuichi Ueda
