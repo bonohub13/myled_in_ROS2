@@ -1,5 +1,5 @@
 from os import system
-from time import sleep
+from time import sleep #used due to ros2 not having wait() method
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32
@@ -7,8 +7,10 @@ from std_msgs.msg import Float32
 class CPU_TempChecker(Node):
     def __init__(self, min_temp: float = 40, max_temp: float = 60):
         super().__init__('cpu_temp2led')
+        #initializing max and min temperature for cpu
         self.min_temp = min_temp
         self.max_temp = max_temp
+
         self.topicName = '/cpu_temp'
         self.cpuTemp = Float32()
         self.sub = self.create_subscription(Float32, 
@@ -37,7 +39,7 @@ class CPU_TempChecker(Node):
             self.led_pin(0, 23)
             self.led_pin(1, 25)
 
-    def startup(self):
+    def startup(self): #function for initial run
         for i in range(3):
             if i%3 == 0:
                 self.led_pin(1, 17)
@@ -55,14 +57,14 @@ class CPU_TempChecker(Node):
         sleep(1)
 
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args) #initialization
     min_temp = float(input('input the minimal temperature[C]: '))
     max_temp = float(input('input the maximum temperature[C]: '))
     cpu_temp2led = CPU_TempChecker(min_temp=min_temp, max_temp=max_temp)
     cpu_temp2led.startup()
     rclpy.spin(cpu_temp2led)
-    cpu_temp2led.destroy_node()
-    rclpy.shutdown()
+    cpu_temp2led.destroy_node() #destroying node after exit (garbage collector)
+    rclpy.shutdown()            #shutting down ROS2
 
 if __name__ == '__main__':
     main()

@@ -8,14 +8,14 @@ class PostCPU(Node):
         self.topicName = '/cpu_temp'
         self.pub = self.create_publisher(Float32, self.topicName, 10)
         self.cpuTemp_msg = Float32()
-        timer_rate = 10/1000
+        timer_rate = 10/1000 #rate for loop
         self.rate = self.create_timer(timer_rate, self.timerCB)
 
     def timerCB(self):
         with open('/sys/class/thermal/thermal_zone0/temp', 'r') as thermal:
             thermal = float(thermal.read())/1000
             self.cpuTemp_msg.data = thermal
-            self.pub.publish(self.cpuTemp_msg)
+            self.pub.publish(self.cpuTemp_msg) #publishing current thermal to client
             self.get_logger().info('CPU Temp: {}'.format(thermal))
 
 def main(args=None):
